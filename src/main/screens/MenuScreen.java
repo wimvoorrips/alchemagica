@@ -1,6 +1,7 @@
 package main.screens;
 
 import main.GamePanel;
+import main.StaticImage.Patroon;
 import main.StaticImage.ScreenChangeButton;
 import main.StaticImage.StaticImage;
 
@@ -26,6 +27,9 @@ public class MenuScreen extends Screen {
         startKnop.setY(startKnopY);
         this.drawables.add(startKnop);
         this.clickables.add(startKnop);
+
+        Patroon patroon = new Patroon("sprites/garen.png", 0,0,600,200);
+        drawables.add(patroon);
     }
 
     @Override
