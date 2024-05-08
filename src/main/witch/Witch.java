@@ -12,6 +12,10 @@ public class Witch implements Drawable, Clickable {
     private int y;
     private int width;
     private int height;
+
+    private StaticImage expression;
+    private String currentExpression;
+
     public Witch(int x, int y) {
         this.x = x;
         this.y = y;
@@ -24,6 +28,18 @@ public class Witch implements Drawable, Clickable {
         width = image.getWidth();
         height = image.getHeight();
         image.draw(g2);
+
+        //drawHead
+
+        //drawTorso
+
+        //drawLegs
+    }
+
+    private  void changeExpression(String newExpression){
+        currentExpression = newExpression;
+        expression = new StaticImage("sprites/witch/expressions/" + currentExpression, 0,0 );
+
     }
 
     @Override
