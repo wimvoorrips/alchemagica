@@ -1,10 +1,53 @@
 package main.witch;
 
 import main.StaticImage.StaticImage;
+import main.interfaces.Clickable;
+import main.interfaces.Drawable;
 
-public class Witch extends StaticImage {
+import java.awt.*;
+import java.awt.event.MouseEvent;
 
-    public Witch(String imageString, int x, int y) {
-        super("sprites/witch.jpeg", x, y);
+public class Witch implements Drawable, Clickable {
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+    public Witch(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+
+    @Override
+    public void draw(Graphics2D g2) {
+        StaticImage image = new StaticImage("sprites/witch.jpeg", x, y);
+        width = image.getWidth();
+        height = image.getHeight();
+        image.draw(g2);
+    }
+
+    @Override
+    public void onMouseClick(MouseEvent e) {
+        System.out.println("you clicked the witch!");
+    }
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 }

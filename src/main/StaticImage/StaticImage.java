@@ -28,7 +28,7 @@ public class StaticImage implements Drawable {
         String realImageString = "/resources/" + imageString;
         try {
             image = ImageIO.read(getClass().getResource(realImageString));
-            System.out.println("gelukt");
+            //System.out.println("gelukt");
         } catch (IOException e){
             System.out.println(e);
         }

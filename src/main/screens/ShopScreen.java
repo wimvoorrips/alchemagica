@@ -2,6 +2,7 @@ package main.screens;
 
 import main.GamePanel;
 import main.StaticImage.StaticImage;
+import main.witch.Witch;
 
 import java.awt.event.MouseEvent;
 
@@ -26,8 +27,10 @@ public class ShopScreen extends Screen {
         cauldron.setY(startKnopY);
         this.drawables.add(cauldron);
 
-        StaticImage testSprite = new StaticImage("sprites/witch.jpeg", 0, 0);
-        this.drawables.add(testSprite);
+        //StaticImage testSprite = new StaticImage("sprites/witch.jpeg", 0, 0);
+        Witch witch = new Witch(0,0);
+        this.drawables.add(witch);
+        this.clickables.add(witch);
     }
 
     @Override
