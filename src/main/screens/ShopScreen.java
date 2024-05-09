@@ -54,4 +54,9 @@ public class ShopScreen extends Screen {
         super.onMouseClick(e);
         System.out.println("er is geklikt in de shop");
     }
+
+    @Override
+    public void setIsHovered(boolean isHovered) {
+
+    }
 }

@@ -44,4 +44,9 @@ public class MenuScreen extends Screen {
 
         //GamePanel.setGameState(GamePanel.GameState.SHOP);
     }
+
+    @Override
+    public void setIsHovered(boolean isHovered) {
+
+    }
 }

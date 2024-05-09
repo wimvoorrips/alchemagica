@@ -34,9 +34,9 @@ public class Cauldron {
         double totalEnergy = 0;
         double totalIntellect = 0;
         for(Ingredient ingredient : contents){
-            totalStrength += ingredient.strength;
-            totalIntellect += ingredient.intellect;
-            totalEnergy += ingredient.energy;
+            totalStrength += ingredient.getStrength();
+            totalIntellect += ingredient.getIntellect();
+            totalEnergy += ingredient.getEnergy();
         }
         int resultingEnergy = (int) totalEnergy / contents.size();
         int resultingStrength = (int) totalStrength / contents.size();
@@ -45,7 +45,7 @@ public class Cauldron {
         System.out.println("je hebt een potion met de volgende stats");
         System.out.println("energy: " + resultingEnergy);
         System.out.println("strength: " + resultingStrength);
-        System.out.println("intellect" + resultingIntellect);
+        System.out.println("intellect: " + resultingIntellect);
 
         empty();
     }

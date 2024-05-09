@@ -20,6 +20,9 @@ public abstract class Screen implements Clickable, Hoverable {
     protected List<Clickable> clickables = new ArrayList<Clickable>();
     protected List<Hoverable> hoverables = new ArrayList<Hoverable>();
 
+    private static int mouseX;
+    private static int mouseY;
+
     public void update(){
         for(Updatable updatable : updatables){
             updatable.update();
@@ -45,13 +48,17 @@ public abstract class Screen implements Clickable, Hoverable {
     }
 
     public void onMouseMove(MouseEvent e){
-        int mouseX = e.getX();
-        int mouseY = e.getY();
+        mouseX = e.getX();
+        mouseY = e.getY();
         for( Hoverable hoverable : hoverables){
             if(mouseX >= hoverable.getX() && mouseX <= hoverable.getX() + hoverable.getWidth() &&
                mouseY >= hoverable.getY() && mouseY <= hoverable.getY() + hoverable.getHeight()){
+                hoverable.setIsHovered(true);
                 hoverable.onMouseMove(e);
+            } else {
+                hoverable.setIsHovered(false);
             }
+
         }
     }
 
@@ -73,5 +80,13 @@ public abstract class Screen implements Clickable, Hoverable {
     @Override
     public int getHeight() {
         return height;
+    }
+
+    public static int getMouseX() {
+        return mouseX;
+    }
+
+    public static int getMouseY() {
+        return mouseY;
     }
 }
