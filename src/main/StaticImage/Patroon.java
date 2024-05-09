@@ -15,14 +15,14 @@ public class Patroon implements Drawable {
         StaticImage image = new StaticImage(afbeelding,0,0);
         spriteWidth = image.getWidth();
         spriteHeight = image.getHeight();
-        int amountHorizontal = (int) Math.ceil(width / spriteWidth);
-        int amountVertical = (int) Math.ceil(height / spriteHeight);
+        double amountHorizontal = Math.ceil(((double) width) / spriteWidth);
+        double amountVertical = Math.ceil(((double) height) / spriteHeight);
 
-        int drawX = x;
-        int drawY = y;
+        int horizontalRoundedUp = (int) amountHorizontal;
+        int verticalRoundedUp = (int) amountVertical;
 
-        for(int i = 0; i < amountHorizontal; i++){
-            for (int j = 0; j < amountVertical; j++){
+        for(int i = 0; i < horizontalRoundedUp; i++){
+            for (int j = 0; j < verticalRoundedUp; j++){
                 StaticImage plaatje = new StaticImage(afbeelding, x + (i*spriteWidth), y + (j*spriteHeight));
                 drawables.add(plaatje);
             }

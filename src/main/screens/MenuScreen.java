@@ -19,6 +19,9 @@ public class MenuScreen extends Screen {
     }
 
     private void addEntities(){
+        Patroon achterwand = new Patroon("sprites/plankenmuurgroot.png",0,0, GamePanel.screenWidth, 800);// GamePanel.screenHeight);
+        drawables.add(achterwand);
+
         //StaticImage startKnop = new StaticImage("sprites/startknopgroot.png", 0, 0);
         ScreenChangeButton startKnop = new ScreenChangeButton("sprites/startknopgroot.png", 0, 0, GamePanel.GameState.SHOP);
         int startKnopX = (GamePanel.screenWidth / 2) - (startKnop.getWidth() / 2);
@@ -28,8 +31,10 @@ public class MenuScreen extends Screen {
         this.drawables.add(startKnop);
         this.clickables.add(startKnop);
 
-        Patroon patroon = new Patroon("sprites/garen.png", 0,0,600,200);
-        drawables.add(patroon);
+        //Patroon patroon = new Patroon("sprites/garen.png", 0,0,600,200);
+        //drawables.add(patroon);
+
+
     }
 
     @Override

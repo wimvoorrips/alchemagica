@@ -38,18 +38,14 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void addListeners(){
-        addMouseListener(new MouseAdapter() {
-            /**
-             * {@inheritDoc}
-             *
-             * @param e
-             */
-            @Override
-            public void mousePressed(MouseEvent e) {
-                //super.mouseClicked(e);
-                //System.out.println("geklikt");
-                //System.out.println(e);
+        addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent e){
                 mousePressExecution(e);
+            }
+        });
+
+        addMouseMotionListener(new MouseAdapter() {
+            public void mouseMoved(MouseEvent e){
             }
         });
     }

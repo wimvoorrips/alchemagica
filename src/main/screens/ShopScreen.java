@@ -1,6 +1,7 @@
 package main.screens;
 
 import main.GamePanel;
+import main.StaticImage.Patroon;
 import main.StaticImage.StaticImage;
 import main.witch.Witch;
 
@@ -12,6 +13,8 @@ public class ShopScreen extends Screen {
     }
 
     private void addEntities(){
+        Patroon achterwand = new Patroon("sprites/plankenmuurgroot.png",0,0, GamePanel.screenWidth, 800);// GamePanel.screenHeight);
+        drawables.add(achterwand);
 
         StaticImage kast = new StaticImage("sprites/kastgroot.png", 0 , 0);
         int kastX = (GamePanel.screenWidth / 2) - (kast.getWidth() / 2);
