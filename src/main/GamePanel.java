@@ -46,6 +46,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         addMouseMotionListener(new MouseAdapter() {
             public void mouseMoved(MouseEvent e){
+                mouseMoveExecution(e);
             }
         });
     }
@@ -53,7 +54,11 @@ public class GamePanel extends JPanel implements Runnable {
     private void mousePressExecution(MouseEvent e){
         Screen activeScreen = getActiveScreen();
         activeScreen.onMouseClick(e);
+    }
 
+    private void mouseMoveExecution(MouseEvent e){
+        Screen activeScreen = getActiveScreen();
+        activeScreen.onMouseMove(e);
     }
 
     private Screen getActiveScreen(){

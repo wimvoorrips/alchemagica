@@ -2,6 +2,7 @@ package main.screens;
 
 import main.interfaces.Drawable;
 import main.interfaces.Clickable;
+import main.interfaces.Hoverable;
 import main.interfaces.Updatable;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Screen implements Clickable {
+public abstract class Screen implements Clickable, Hoverable {
     private int x = 0;
     private int y = 0;
     private int width = 0;
@@ -17,6 +18,7 @@ public abstract class Screen implements Clickable {
     protected List<Updatable> updatables = new ArrayList<Updatable>();
     protected List<Drawable> drawables = new ArrayList<Drawable>();
     protected List<Clickable> clickables = new ArrayList<Clickable>();
+    protected List<Hoverable> hoverables = new ArrayList<Hoverable>();
 
     public void update(){
         for(Updatable updatable : updatables){
@@ -38,6 +40,17 @@ public abstract class Screen implements Clickable {
             if(mouseX >= clickable.getX() && mouseX <= clickable.getX() + clickable.getWidth() &&
                mouseY >= clickable.getY() && mouseY <= clickable.getY() + clickable.getHeight()){
                 clickable.onMouseClick(e);
+            }
+        }
+    }
+
+    public void onMouseMove(MouseEvent e){
+        int mouseX = e.getX();
+        int mouseY = e.getY();
+        for( Hoverable hoverable : hoverables){
+            if(mouseX >= hoverable.getX() && mouseX <= hoverable.getX() + hoverable.getWidth() &&
+               mouseY >= hoverable.getY() && mouseY <= hoverable.getY() + hoverable.getHeight()){
+                hoverable.onMouseMove(e);
             }
         }
     }

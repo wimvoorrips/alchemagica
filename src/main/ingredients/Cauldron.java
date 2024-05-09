@@ -9,7 +9,11 @@ public class Cauldron {
 
     public static void addIngredient(Ingredient ingredient){
         if(! isFull()){
+            System.out.println("toegevoegd aan cauldron");
             contents.add(ingredient);
+            if( isFull() ){
+                createPotion();
+            }
         }
     }
 
@@ -23,5 +27,26 @@ public class Cauldron {
 
     public static List<Ingredient> getContents(){
         return contents;
+    }
+
+    private static void createPotion(){
+        double totalStrength = 0;
+        double totalEnergy = 0;
+        double totalIntellect = 0;
+        for(Ingredient ingredient : contents){
+            totalStrength += ingredient.strength;
+            totalIntellect += ingredient.intellect;
+            totalEnergy += ingredient.energy;
+        }
+        int resultingEnergy = (int) totalEnergy / contents.size();
+        int resultingStrength = (int) totalStrength / contents.size();
+        int resultingIntellect = (int) totalIntellect / contents.size();
+
+        System.out.println("je hebt een potion met de volgende stats");
+        System.out.println("energy: " + resultingEnergy);
+        System.out.println("strength: " + resultingStrength);
+        System.out.println("intellect" + resultingIntellect);
+
+        empty();
     }
 }
