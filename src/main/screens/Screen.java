@@ -17,6 +17,7 @@ public abstract class Screen implements Clickable, Hoverable {
     private int height = 0;
     protected List<Updatable> updatables = new ArrayList<Updatable>();
     protected List<Drawable> drawables = new ArrayList<Drawable>();
+    protected List<Drawable> popups = new ArrayList<Drawable>();
     protected List<Clickable> clickables = new ArrayList<Clickable>();
     protected List<Hoverable> hoverables = new ArrayList<Hoverable>();
 
@@ -32,6 +33,9 @@ public abstract class Screen implements Clickable, Hoverable {
     public void draw(Graphics2D g2){
         for(Drawable drawable : drawables){
             drawable.draw(g2);
+        }
+        for(Drawable drawable : drawables){
+            drawable.drawOverlay(g2);
         }
     }
 

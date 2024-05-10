@@ -36,6 +36,11 @@ public class Witch implements Drawable, Clickable {
         //drawLegs
     }
 
+    @Override
+    public void drawOverlay(Graphics2D g2) {
+
+    }
+
     private  void changeExpression(String newExpression){
         currentExpression = newExpression;
         expression = new StaticImage("sprites/witch/expressions/" + currentExpression, 0,0 );

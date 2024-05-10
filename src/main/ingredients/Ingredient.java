@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 
 public class Ingredient extends ImageButton implements Hoverable {
 
+    protected int amountInStock = 0;
+
     private double energy = 0;
     private double strength = 0;
     private double intellect = 0;
@@ -44,7 +46,13 @@ public class Ingredient extends ImageButton implements Hoverable {
 
     @Override
     public void onMouseClick(MouseEvent e) {
-        Cauldron.addIngredient(this);
+        if(canChangeAmountInStock(-1)){
+            Cauldron.addIngredient(this);
+        }
+    }
+
+    private boolean canChangeAmountInStock(int amount){
+        return amountInStock + amount >= 0;
     }
 
 
@@ -62,8 +70,28 @@ public class Ingredient extends ImageButton implements Hoverable {
         super.draw(g2);
         if(isHovered){
             hoverImage.draw(g2);
+        }
+
+    }
+
+    @Override
+    public void drawOverlay(Graphics2D g2) {
+        if(isHovered){
+
             createDropDown(g2, Screen.getMouseX(), Screen.getMouseY());
         }
+    }
+
+    public void setEnergy(double energy) {
+        this.energy = energy;
+    }
+
+    public void setStrength(double strength) {
+        this.strength = strength;
+    }
+
+    public void setIntellect(double intellect) {
+        this.intellect = intellect;
     }
 
     public double getEnergy() {

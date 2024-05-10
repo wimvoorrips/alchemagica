@@ -36,4 +36,9 @@ public class Patroon implements Drawable {
             drawable.draw(g2);
         }
     }
+
+    @Override
+    public void drawOverlay(Graphics2D g2) {
+
+    }
 }

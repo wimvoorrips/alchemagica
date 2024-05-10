@@ -40,6 +40,12 @@ public class StaticImage implements Drawable {
         g2.drawImage(image,x,y, null  );
     }
 
+    @Override
+    public void drawOverlay(Graphics2D g2) {
+
+    }
+
+
     public int getX(){
         return x;
     }
