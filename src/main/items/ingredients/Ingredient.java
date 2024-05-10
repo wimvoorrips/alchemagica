@@ -1,8 +1,9 @@
-package main.ingredients;
+package main.items.ingredients;
 
 import main.StaticImage.ImageButton;
 import main.StaticImage.StaticImage;
 import main.interfaces.Hoverable;
+import main.items.Cauldron;
 import main.screens.Screen;
 
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.awt.event.MouseEvent;
 
 public class Ingredient extends ImageButton implements Hoverable {
 
-    protected int amountInStock = 0;
+    protected int amountInStock = 10;
 
     private double energy = 0;
     private double strength = 0;
@@ -30,7 +31,7 @@ public class Ingredient extends ImageButton implements Hoverable {
     }
 
     private void createHoveredImage(int x, int y){
-        hoverImage = new StaticImage("sprites/ingredientselectedgroot.png", x,y);
+        hoverImage = new StaticImage("sprites/ingredients/ingredientselectedgroot.png", x,y);
     }
 
     private void createDropDown(Graphics2D g2, int x, int y){
@@ -42,11 +43,13 @@ public class Ingredient extends ImageButton implements Hoverable {
         g2.drawString("energy: " + energy, x + 10, y + 20);
         g2.drawString("strength: " + strength, x + 10, y + 40);
         g2.drawString("intellect: " + intellect, x + 10, y + 60);
+        g2.drawString("Aantal over: " + amountInStock, x + 10, y + 80);
     }
 
     @Override
     public void onMouseClick(MouseEvent e) {
         if(canChangeAmountInStock(-1)){
+            amountInStock -= 1;
             Cauldron.addIngredient(this);
         }
     }

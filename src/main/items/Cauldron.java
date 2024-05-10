@@ -1,4 +1,6 @@
-package main.ingredients;
+package main.items;
+
+import main.items.ingredients.Ingredient;
 
 import java.util.ArrayList;
 import java.util.List;

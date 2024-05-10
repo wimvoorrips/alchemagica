@@ -1,4 +1,4 @@
-package main.ingredients;
+package main.items.ingredients;
 
 public class Carrot extends Ingredient {
 

@@ -10,11 +10,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Screen implements Clickable, Hoverable {
-    private int x = 0;
-    private int y = 0;
-    private int width = 0;
-    private int height = 0;
+public abstract class Screen implements Clickable, Hoverable, Drawable {
+    protected int x = 0;
+    protected int y = 0;
+    protected int width = 0;
+    protected int height = 0;
     protected List<Updatable> updatables = new ArrayList<Updatable>();
     protected List<Drawable> drawables = new ArrayList<Drawable>();
     protected List<Drawable> popups = new ArrayList<Drawable>();
@@ -42,7 +42,7 @@ public abstract class Screen implements Clickable, Hoverable {
     public void onMouseClick(MouseEvent e){
         int mouseX = e.getX();
         int mouseY = e.getY();
-        System.out.println(mouseX + ", " + mouseY);
+        //System.out.println(mouseX + ", " + mouseY);
         for( Clickable clickable : clickables){
             if(mouseX >= clickable.getX() && mouseX <= clickable.getX() + clickable.getWidth() &&
                mouseY >= clickable.getY() && mouseY <= clickable.getY() + clickable.getHeight()){
@@ -84,6 +84,14 @@ public abstract class Screen implements Clickable, Hoverable {
     @Override
     public int getHeight() {
         return height;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public static int getMouseX() {

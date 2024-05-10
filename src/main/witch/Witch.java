@@ -7,7 +7,7 @@ import main.interfaces.Drawable;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class Witch implements Drawable, Clickable {
+public class Witch extends Character implements Drawable, Clickable {
     private int x;
     private int y;
     private int width;
@@ -17,6 +17,7 @@ public class Witch implements Drawable, Clickable {
     private String currentExpression;
 
     public Witch(int x, int y) {
+        super("Witch");
         this.x = x;
         this.y = y;
     }
@@ -49,7 +50,7 @@ public class Witch implements Drawable, Clickable {
 
     @Override
     public void onMouseClick(MouseEvent e) {
-        System.out.println("you clicked the witch!");
+        //System.out.println("you clicked the witch!");
     }
 
     @Override

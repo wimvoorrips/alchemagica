@@ -40,13 +40,18 @@ public class MenuScreen extends Screen {
     @Override
     public void onMouseClick(MouseEvent e) {
         super.onMouseClick(e);
-        System.out.println("er is geklikt in het menu");
+        //System.out.println("er is geklikt in het menu");
 
         //GamePanel.setGameState(GamePanel.GameState.SHOP);
     }
 
     @Override
     public void setIsHovered(boolean isHovered) {
+
+    }
+
+    @Override
+    public void drawOverlay(Graphics2D g2) {
 
     }
 }

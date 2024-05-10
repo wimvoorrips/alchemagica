@@ -3,9 +3,11 @@ package main.screens;
 import main.GamePanel;
 import main.StaticImage.Patroon;
 import main.StaticImage.StaticImage;
-import main.ingredients.Ingredient;
+import main.items.ItemContainer;
+import main.items.ingredients.Ingredient;
 import main.witch.Witch;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class ShopScreen extends Screen {
@@ -21,8 +23,15 @@ public class ShopScreen extends Screen {
         this.drawables.add(witch);
         this.clickables.add(witch);
 
+
+        ItemContainer kast = new ItemContainer(witch, 0, 0);
+        drawables.add(kast);
+        hoverables.add(kast);
+        clickables.add(kast);
+
+        /*
         StaticImage kast = new StaticImage("sprites/kastgroot.png", 0 , 0);
-        int kastX = (GamePanel.screenWidth / 2) - (kast.getWidth() / 2);
+        int kastX = Gam(ePanel.screenWidth / 2) - (kast.getWidth() / 2);
         int kastY = GamePanel.screenHeight - (kast.getHeight() + 400);
         kast.setX(kastX);
         kast.setY(kastY);
@@ -38,6 +47,8 @@ public class ShopScreen extends Screen {
         clickables.add(ingredient2);
         hoverables.add(ingredient2);
 
+         */
+
         StaticImage cauldron = new StaticImage("sprites/cauldrongroot.png", 0,0);
         int startKnopX = (GamePanel.screenWidth / 2) - (cauldron.getWidth() / 2);
         int startKnopY = GamePanel.screenHeight - (cauldron.getHeight() + 100);
@@ -52,11 +63,16 @@ public class ShopScreen extends Screen {
     @Override
     public void onMouseClick(MouseEvent e) {
         super.onMouseClick(e);
-        System.out.println("er is geklikt in de shop");
+        //System.out.println("er is geklikt in de shop");
     }
 
     @Override
     public void setIsHovered(boolean isHovered) {
+
+    }
+
+    @Override
+    public void drawOverlay(Graphics2D g2) {
 
     }
 }
