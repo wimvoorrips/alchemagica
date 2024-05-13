@@ -37,16 +37,26 @@ public class Customer {
     }
 
     private boolean checkPotionAgainstRequest(Potion potion, PotionRequest request) {
+        System.out.println("checkagainstrequest");
+
         String requestAttribute = request.getAttribute();
         int requestValue = request.getValue();
         int potionValue = 0;
 
+        System.out.println(requestAttribute);
+        System.out.println(requestValue);
+
         try {
             Class potionClass = potion.getClass();
+            System.out.println(potionClass);
             Field field = potionClass.getDeclaredField(requestAttribute);
-            //field.setAccessible(true);
-            potionValue = (int) field.get(potion);
+            System.out.println(field);
+            field.setAccessible(true);
+            double doublePotionValue = (double) field.get(potion);
+            System.out.println(doublePotionValue);
+            potionValue = (int) Math.round(doublePotionValue);
         } catch (Throwable e){
+            System.out.println(e);
             return false;
         }
 
