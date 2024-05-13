@@ -17,8 +17,7 @@ public class ItemContainer extends Pane {
     private Character owner;
 
     public ItemContainer(Character owner, int x, int y){
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.owner = owner;
 
 
@@ -27,11 +26,12 @@ public class ItemContainer extends Pane {
         int kastY = GamePanel.screenHeight - (kast.getHeight() + 400);
         kast.setX(kastX);
         kast.setY(kastY);
+        addEntity(kast);
 
         this.x = kastX;
         this.y = kastY;
 
-        drawables.add(kast);
+
 
         this.setWidth(kast.getWidth());
         this.setHeight(kast.getHeight());
@@ -51,9 +51,10 @@ public class ItemContainer extends Pane {
                 x = this.x + 20;
                 y += 100;
             }
-            this.drawables.add(ingredient);
-            this.clickables.add(ingredient);
-            this.hoverables.add(ingredient);
+            addEntity(ingredient);
+            //this.drawables.add(ingredient);
+            //this.clickables.add(ingredient);
+            //this.hoverables.add(ingredient);
         }
     }
 }

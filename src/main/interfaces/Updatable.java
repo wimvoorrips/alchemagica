@@ -1,5 +1,5 @@
 package main.interfaces;
 
-public interface Updatable {
+public interface Updatable extends GameEntity {
     void update();
 }

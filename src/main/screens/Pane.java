@@ -1,9 +1,6 @@
 package main.screens;
 
-import main.interfaces.Clickable;
-import main.interfaces.Drawable;
-import main.interfaces.Hoverable;
-import main.interfaces.Updatable;
+import main.interfaces.*;
 import main.screens.Screen;
 
 import java.awt.*;
@@ -26,6 +23,32 @@ public class Pane implements Clickable, Hoverable, Drawable {
     private static int mouseX;
     private static int mouseY;
     private boolean isHovered;
+
+    public Pane(int x, int y){
+        this(x, y, 0, 0);
+    }
+
+    public Pane(int x, int y, int width, int height){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    public void addEntity(GameEntity entity){
+        if(entity instanceof Updatable){
+            updatables.add((Updatable) entity);
+        }
+        if(entity instanceof Drawable){
+            drawables.add((Drawable) entity);
+        }
+        if(entity instanceof Clickable){
+            clickables.add((Clickable) entity);
+        }
+        if(entity instanceof Hoverable){
+            hoverables.add((Hoverable) entity);
+        }
+    }
 
     public void update(){
         for(Updatable updatable : updatables){

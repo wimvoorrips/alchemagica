@@ -2,7 +2,7 @@ package main.interfaces;
 
 import java.awt.event.MouseEvent;
 
-public interface Clickable {
+public interface Clickable extends GameEntity {
     void onMouseClick(MouseEvent e);
     int getX();
     int getY();

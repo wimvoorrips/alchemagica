@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 
 public class ShopScreen extends Screen {
     public ShopScreen(){
+        super();
         addEntities();
     }
 
@@ -20,14 +21,16 @@ public class ShopScreen extends Screen {
         drawables.add(achterwand);
 
         Witch witch = new Witch(0,0);
-        this.drawables.add(witch);
-        this.clickables.add(witch);
+        addEntity(witch);
+        //this.drawables.add(witch);
+        //this.clickables.add(witch);
 
 
         ItemContainer kast = new ItemContainer(witch, 0, 0);
-        drawables.add(kast);
-        hoverables.add(kast);
-        clickables.add(kast);
+        addEntity(kast);
+        //drawables.add(kast);
+        //hoverables.add(kast);
+        //clickables.add(kast);
 
         /*
         StaticImage kast = new StaticImage("sprites/kastgroot.png", 0 , 0);
@@ -54,7 +57,8 @@ public class ShopScreen extends Screen {
         int startKnopY = GamePanel.screenHeight - (cauldron.getHeight() + 100);
         cauldron.setX(startKnopX);
         cauldron.setY(startKnopY);
-        this.drawables.add(cauldron);
+        addEntity(cauldron);
+        //this.drawables.add(cauldron);
 
         //StaticImage testSprite = new StaticImage("sprites/witch.jpeg", 0, 0);
 
