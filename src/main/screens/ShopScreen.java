@@ -3,14 +3,20 @@ package main.screens;
 import main.GamePanel;
 import main.StaticImage.Patroon;
 import main.StaticImage.StaticImage;
+import main.interfaces.GameEntity;
+import main.items.Cauldron;
 import main.items.ItemContainer;
 import main.items.ingredients.Ingredient;
+import main.witch.Customer;
 import main.witch.Witch;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class ShopScreen extends Screen {
+
+    private Customer currentCustomer;
+    private TextBox chatBox;
     public ShopScreen(){
         super();
         addEntities();
@@ -21,7 +27,7 @@ public class ShopScreen extends Screen {
         drawables.add(achterwand);
 
         Witch witch = new Witch(0,0);
-        addEntity(witch);
+        addEntity((GameEntity) witch);
         //this.drawables.add(witch);
         //this.clickables.add(witch);
 
@@ -57,7 +63,18 @@ public class ShopScreen extends Screen {
         int startKnopY = GamePanel.screenHeight - (cauldron.getHeight() + 100);
         cauldron.setX(startKnopX);
         cauldron.setY(startKnopY);
-        addEntity(cauldron);
+        addEntity((GameEntity) cauldron);
+        Cauldron.shopScreen = this;
+
+        chatBox = new TextBox(0,600, GamePanel.screenWidth, 200);
+        addEntity(chatBox);
+
+        currentCustomer = new Customer();
+        currentCustomer.generateRequest();
+
+        chatBox.setText(currentCustomer.makeText());
+
+
         //this.drawables.add(cauldron);
 
         //StaticImage testSprite = new StaticImage("sprites/witch.jpeg", 0, 0);
@@ -78,5 +95,13 @@ public class ShopScreen extends Screen {
     @Override
     public void drawOverlay(Graphics2D g2) {
 
+    }
+
+    public Customer getCurrentCustomer(){
+        return currentCustomer;
+    }
+
+    public TextBox getChatBox() {
+        return chatBox;
     }
 }

@@ -20,6 +20,7 @@ public class Ingredient extends ImageButton implements Hoverable {
     private double healing = 0;
     private boolean isHovered = false;
 
+    private StaticImage defaultImage;
     private StaticImage hoverImage;
 
 
@@ -27,8 +28,12 @@ public class Ingredient extends ImageButton implements Hoverable {
         super(imageString, x, y);
         energy = Math.round((Math.random() - 0.5) * 200);
         intellect = Math.round((Math.random() - 0.5) * 200);
+        strength = Math.round((Math.random() - 0.5) * 200);
+        dexterity = Math.round((Math.random() - 0.5) * 200);
+        healing = Math.round((Math.random() - 0.5) * 200);
         createHoveredImage(x, y);
     }
+
 
     private void createHoveredImage(int x, int y){
         hoverImage = new StaticImage("sprites/ingredients/ingredientselectedgroot.png", x,y);
@@ -36,14 +41,16 @@ public class Ingredient extends ImageButton implements Hoverable {
 
     private void createDropDown(Graphics2D g2, int x, int y){
         g2.setColor(Color.white);
-        g2.fillRect(x, y, 100, 100);
+        g2.fillRect(x, y, 100, 140);
         g2.setColor(Color.darkGray);
-        g2.fillRect(x + 4, y + 4, 92, 92);
+        g2.fillRect(x + 4, y + 4, 92, 132);
         g2.setColor(Color.white);
         g2.drawString("energy: " + energy, x + 10, y + 20);
         g2.drawString("strength: " + strength, x + 10, y + 40);
         g2.drawString("intellect: " + intellect, x + 10, y + 60);
-        g2.drawString("Aantal over: " + amountInStock, x + 10, y + 80);
+        g2.drawString("dexterity: " + dexterity, x + 10, y + 80);
+        g2.drawString("healing: " + healing, x + 10, y + 100);
+        g2.drawString("Aantal over: " + amountInStock, x + 10, y + 120);
     }
 
     @Override
@@ -107,5 +114,13 @@ public class Ingredient extends ImageButton implements Hoverable {
 
     public double getIntellect() {
         return intellect;
+    }
+
+    public double getDexterity() {
+        return dexterity;
+    }
+
+    public double getHealing() {
+        return healing;
     }
 }

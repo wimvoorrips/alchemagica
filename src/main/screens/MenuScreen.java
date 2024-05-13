@@ -4,6 +4,7 @@ import main.GamePanel;
 import main.StaticImage.Patroon;
 import main.StaticImage.ScreenChangeButton;
 import main.StaticImage.StaticImage;
+import main.witch.Customer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,6 +34,8 @@ public class MenuScreen extends Screen {
 
         //Patroon patroon = new Patroon("sprites/garen.png", 0,0,600,200);
         //drawables.add(patroon);
+
+
 
 
     }

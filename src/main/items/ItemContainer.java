@@ -3,6 +3,7 @@ package main.items;
 import main.GamePanel;
 import main.StaticImage.StaticImage;
 import main.interfaces.Drawable;
+import main.interfaces.GameEntity;
 import main.items.ingredients.Ingredient;
 import main.screens.Pane;
 import main.screens.Screen;
@@ -26,7 +27,7 @@ public class ItemContainer extends Pane {
         int kastY = GamePanel.screenHeight - (kast.getHeight() + 400);
         kast.setX(kastX);
         kast.setY(kastY);
-        addEntity(kast);
+        addEntity((GameEntity) kast);
 
         this.x = kastX;
         this.y = kastY;
