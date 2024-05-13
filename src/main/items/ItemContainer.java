@@ -4,6 +4,7 @@ import main.GamePanel;
 import main.StaticImage.StaticImage;
 import main.interfaces.Drawable;
 import main.items.ingredients.Ingredient;
+import main.screens.Pane;
 import main.screens.Screen;
 import main.witch.Character;
 
@@ -11,7 +12,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-public class ItemContainer extends Screen {
+public class ItemContainer extends Pane {
     private StaticImage kast;
     private Character owner;
 
@@ -53,31 +54,6 @@ public class ItemContainer extends Screen {
             this.drawables.add(ingredient);
             this.clickables.add(ingredient);
             this.hoverables.add(ingredient);
-        }
-    }
-
-    @Override
-    public void setIsHovered(boolean isHovered) {
-
-    }
-
-//    @Override
-//    public void onMouseClick(MouseEvent e){
-//        System.out.println("er is in de container geklikt");
-//
-//    }
-
-    @Override
-    public void draw (Graphics2D g2){
-        for(Drawable drawable : drawables){
-            drawable.draw(g2);
-        }
-    }
-
-    @Override
-    public void drawOverlay(Graphics2D g2) {
-        for(Drawable drawable : drawables){
-            drawable.drawOverlay(g2);
         }
     }
 }
