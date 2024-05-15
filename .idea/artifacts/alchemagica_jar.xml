@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="alchemagica:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/alchemagica_jar</output-path>
+    <root id="archive" name="alchemagica.jar">
+      <element id="module-output" name="alchemagica" />
+    </root>
+  </artifact>
+</component>

@@ -35,32 +35,24 @@ public class Cauldron {
     }
 
     private static void createPotion(){
-        double totalStrength = 0;
-        double totalEnergy = 0;
-        double totalIntellect = 0;
-        double totalHealing = 0;
-        double totalDexterity = 0;
+        AttributeList attributeList = new AttributeList();
+
+        //alles optellen
         for(Ingredient ingredient : contents){
-            totalStrength += ingredient.getStrength();
-            totalIntellect += ingredient.getIntellect();
-            totalEnergy += ingredient.getEnergy();
-            totalDexterity += ingredient.getDexterity();
-            totalHealing += ingredient.getHealing();
+            for(AttributeList.attributes attribute : ingredient.getAttributeList().getAttributeList()){
+                int newValue = attributeList.getAttributeValue(attribute) + ingredient.getAttributeList().getAttributeValue(attribute);
+                attributeList.setAttributeValue(attribute, newValue);
+            }
         }
-        int resultingEnergy = (int) totalEnergy / contents.size();
-        int resultingStrength = (int) totalStrength / contents.size();
-        int resultingIntellect = (int) totalIntellect / contents.size();
-        int resultingDexterity = (int) totalDexterity / contents.size();
-        int resultingHealing = (int) totalHealing / contents.size();
 
-        System.out.println("je hebt een potion met de volgende stats");
-        System.out.println("energy: " + resultingEnergy);
-        System.out.println("strength: " + resultingStrength);
-        System.out.println("intellect: " + resultingIntellect);
-        System.out.println("intellect: " + resultingDexterity);
-        System.out.println("intellect: " + resultingHealing);
+        //gemiddelde nemen
+        for(AttributeList.attributes attribute : attributeList.getAttributeList()){
+            int averageValue = attributeList.getAttributeValue(attribute) / contents.size();
+            attributeList.setAttributeValue(attribute, averageValue);
+            System.out.println(attribute + ": " + attributeList.getAttributeValue(attribute));
+        }
 
-        String reply = shopScreen.getCurrentCustomer().tellAboutPotion(new Potion(resultingEnergy, resultingStrength, resultingIntellect, resultingDexterity, resultingHealing));
+        ArrayList<String> reply = shopScreen.getCurrentCustomer().tellAboutPotion(attributeList);//new Potion(attributeList));
         shopScreen.getChatBox().setText(reply);
 
         empty();

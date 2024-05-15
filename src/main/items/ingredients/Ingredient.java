@@ -3,6 +3,7 @@ package main.items.ingredients;
 import main.StaticImage.ImageButton;
 import main.StaticImage.StaticImage;
 import main.interfaces.Hoverable;
+import main.items.AttributeList;
 import main.items.Cauldron;
 import main.screens.Screen;
 
@@ -13,24 +14,16 @@ public class Ingredient extends ImageButton implements Hoverable {
 
     protected int amountInStock = 10;
 
-    private double energy = 0;
-    private double strength = 0;
-    private double intellect = 0;
-    private double dexterity = 0;
-    private double healing = 0;
     private boolean isHovered = false;
 
     private StaticImage defaultImage;
     private StaticImage hoverImage;
 
+    private AttributeList attributeList = new AttributeList();
+
 
     public Ingredient(String imageString, int x, int y){
         super(imageString, x, y);
-        energy = Math.round((Math.random() - 0.5) * 200);
-        intellect = Math.round((Math.random() - 0.5) * 200);
-        strength = Math.round((Math.random() - 0.5) * 200);
-        dexterity = Math.round((Math.random() - 0.5) * 200);
-        healing = Math.round((Math.random() - 0.5) * 200);
         createHoveredImage(x, y);
     }
 
@@ -45,11 +38,19 @@ public class Ingredient extends ImageButton implements Hoverable {
         g2.setColor(Color.darkGray);
         g2.fillRect(x + 4, y + 4, 92, 132);
         g2.setColor(Color.white);
+
+        int tekstHoogte = y + 20;
+        for(AttributeList.attributes attribute : attributeList.getAttributeList() ){
+        //for(String attribute : attributeList.getAttributeList()){
+            g2.drawString(attribute + ": " + attributeList.getAttributeValue(attribute), x + 10, tekstHoogte);
+            tekstHoogte += 20;
+        }
+        /*
         g2.drawString("energy: " + energy, x + 10, y + 20);
         g2.drawString("strength: " + strength, x + 10, y + 40);
         g2.drawString("intellect: " + intellect, x + 10, y + 60);
         g2.drawString("dexterity: " + dexterity, x + 10, y + 80);
-        g2.drawString("healing: " + healing, x + 10, y + 100);
+        g2.drawString("healing: " + healing, x + 10, y + 100);*/
         g2.drawString("Aantal over: " + amountInStock, x + 10, y + 120);
     }
 
@@ -92,35 +93,11 @@ public class Ingredient extends ImageButton implements Hoverable {
         }
     }
 
-    public void setEnergy(double energy) {
-        this.energy = energy;
+    public AttributeList getAttributeList() {
+        return attributeList;
     }
 
-    public void setStrength(double strength) {
-        this.strength = strength;
-    }
-
-    public void setIntellect(double intellect) {
-        this.intellect = intellect;
-    }
-
-    public double getEnergy() {
-        return energy;
-    }
-
-    public double getStrength() {
-        return strength;
-    }
-
-    public double getIntellect() {
-        return intellect;
-    }
-
-    public double getDexterity() {
-        return dexterity;
-    }
-
-    public double getHealing() {
-        return healing;
+    public void setAttributeList(AttributeList attributeList) {
+        this.attributeList = attributeList;
     }
 }

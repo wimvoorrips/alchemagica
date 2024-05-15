@@ -63,9 +63,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     private Screen getActiveScreen(){
         switch(gameState){
-            case GameState.MENU:
+            case MENU:
                 return menuScreen;
-            case GameState.SHOP:
+            case SHOP:
                 return shopScreen;
         }
         return null;

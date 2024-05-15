@@ -24,6 +24,7 @@ public class Main {
         window.setTitle("alchemagica");
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+        window.setLocation(100,100);
 
         return window;
     }
