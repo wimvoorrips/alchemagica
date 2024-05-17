@@ -34,29 +34,6 @@ public class ShopScreen extends Screen {
 
         ItemContainer kast = new ItemContainer(witch, 0, 0);
         addEntity(kast);
-        //drawables.add(kast);
-        //hoverables.add(kast);
-        //clickables.add(kast);
-
-        /*
-        StaticImage kast = new StaticImage("sprites/kastgroot.png", 0 , 0);
-        int kastX = Gam(ePanel.screenWidth / 2) - (kast.getWidth() / 2);
-        int kastY = GamePanel.screenHeight - (kast.getHeight() + 400);
-        kast.setX(kastX);
-        kast.setY(kastY);
-        this.drawables.add(kast);
-
-        Ingredient ingredient1 = new Ingredient("sprites/ingredientgroot.png", 500,100);
-        drawables.add(ingredient1);
-        clickables.add(ingredient1);
-        hoverables.add(ingredient1);
-
-        Ingredient ingredient2 = new Ingredient("sprites/ingredientgroot.png", 600,100);
-        drawables.add(ingredient2);
-        clickables.add(ingredient2);
-        hoverables.add(ingredient2);
-
-         */
 
         StaticImage cauldron = new StaticImage("sprites/cauldrongroot.png", 0,0);
         int startKnopX = (GamePanel.screenWidth / 2) - (cauldron.getWidth() / 2);

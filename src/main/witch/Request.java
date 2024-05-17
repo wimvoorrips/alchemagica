@@ -12,8 +12,8 @@ public class Request {
         lowerBounds = new AttributeList(-100);
         upperBounds = new AttributeList(100);
 
-        lowerBounds.setAttributeValue(AttributeList.attributes.STRENGTH, 40);
-        lowerBounds.setAttributeValue(AttributeList.attributes.ENERGY, 20);
+        //lowerBounds.setAttributeValue(AttributeList.attributes.STRENGTH, 40);
+        //lowerBounds.setAttributeValue(AttributeList.attributes.ENERGY, 20);
     }
 
     public boolean validateAttributeList( AttributeList attributeList ){
