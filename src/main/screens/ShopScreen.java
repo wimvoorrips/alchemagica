@@ -17,16 +17,16 @@ public class ShopScreen extends Screen {
 
     private Customer currentCustomer;
     private TextBox chatBox;
-    public ShopScreen(){
+    public ShopScreen(Witch witch){
         super();
-        addEntities();
+        addEntities(witch);
     }
 
-    private void addEntities(){
+    private void addEntities(Witch witch){
         Patroon achterwand = new Patroon("sprites/plankenmuurgroot.png",0,0, GamePanel.screenWidth, 800);// GamePanel.screenHeight);
         drawables.add(achterwand);
 
-        Witch witch = new Witch(0,0);
+        //Witch witch = new Witch(0,0);
         addEntity((GameEntity) witch);
         //this.drawables.add(witch);
         //this.clickables.add(witch);
@@ -57,13 +57,14 @@ public class ShopScreen extends Screen {
         //StaticImage testSprite = new StaticImage("sprites/witch.jpeg", 0, 0);
 
     }
+    /*
 
     @Override
     public void onMouseClick(MouseEvent e) {
         super.onMouseClick(e);
         //System.out.println("er is geklikt in de shop");
     }
-
+    */
     @Override
     public void setIsHovered(boolean isHovered) {
 

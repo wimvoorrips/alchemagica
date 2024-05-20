@@ -6,6 +6,8 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +18,8 @@ public class StaticImage implements Drawable {
     private int x;
     private int y;
     private BufferedImage image = null;
+
+    private boolean isFlipped = false;
 
     public StaticImage(String imageString, int x, int y){
         this.imageString = imageString;
@@ -28,6 +32,9 @@ public class StaticImage implements Drawable {
         String realImageString = "/resources/" + imageString;
         try {
             image = ImageIO.read(getClass().getResource(realImageString));
+            if(isFlipped){
+                flipImage();
+            }
             //System.out.println("gelukt");
         } catch (IOException e){
             System.out.println(e);
@@ -43,6 +50,18 @@ public class StaticImage implements Drawable {
     @Override
     public void drawOverlay(Graphics2D g2) {
 
+    }
+
+    public void setFlipped(boolean flipped) {
+        isFlipped = flipped;
+        flipImage();
+    }
+
+    private void flipImage(){
+        AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
+        tx.translate(-image.getWidth(null), 0);
+        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        image = op.filter(image, null);
     }
 
 

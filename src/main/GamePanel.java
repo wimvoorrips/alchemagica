@@ -1,8 +1,10 @@
 package main;
 
+import main.screens.GardenScreen;
 import main.screens.MenuScreen;
 import main.screens.Screen;
 import main.screens.ShopScreen;
+import main.witch.Witch;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,11 +14,13 @@ import java.awt.event.MouseEvent;
 public class GamePanel extends JPanel implements Runnable {
 
     public static enum GameState {
-        MENU, SHOP
+        MENU, SHOP, GARDEN
     }
-    private static GameState gameState = GameState.MENU;
+    private static GameState gameState = GameState.GARDEN;
     ShopScreen shopScreen;
     MenuScreen menuScreen;
+    GardenScreen gardenScreen;
+    Witch witch = new Witch(0,0);
 
     final public static int screenWidth = 1200;//maxScreenColumns * tileSize;
     final public static int screenHeight = 800;//maxScreenRows * tileSize;
@@ -34,6 +38,10 @@ public class GamePanel extends JPanel implements Runnable {
 
         addScreens();
         addListeners();
+        addPlayer();
+    }
+
+    private void addPlayer(){
 
     }
 
@@ -67,13 +75,16 @@ public class GamePanel extends JPanel implements Runnable {
                 return menuScreen;
             case SHOP:
                 return shopScreen;
+            case GARDEN:
+                return gardenScreen;
         }
         return null;
     }
 
     private void addScreens(){
-        shopScreen = new ShopScreen();
-        menuScreen = new MenuScreen();
+        shopScreen = new ShopScreen(witch);
+        menuScreen = new MenuScreen(witch);
+        gardenScreen = new GardenScreen(witch);
     }
 
     public void startGameThread(){

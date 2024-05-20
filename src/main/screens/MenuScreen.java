@@ -5,6 +5,7 @@ import main.StaticImage.Patroon;
 import main.StaticImage.ScreenChangeButton;
 import main.StaticImage.StaticImage;
 import main.witch.Customer;
+import main.witch.Witch;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
 public class MenuScreen extends Screen {
-    public MenuScreen(){
+    public MenuScreen(Witch witch){
         System.out.println("menuScreen is aangemaakt");
 
         addEntities();

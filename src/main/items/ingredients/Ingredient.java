@@ -3,12 +3,13 @@ package main.items.ingredients;
 import main.StaticImage.ImageButton;
 import main.StaticImage.StaticImage;
 import main.interfaces.Hoverable;
-import main.items.AttributeList;
 import main.items.Cauldron;
+import main.items.Tags;
 import main.screens.Screen;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class Ingredient extends ImageButton implements Hoverable {
 
@@ -19,7 +20,8 @@ public class Ingredient extends ImageButton implements Hoverable {
     private StaticImage defaultImage;
     private StaticImage hoverImage;
 
-    private AttributeList attributeList = new AttributeList();
+    //private AttributeList attributeList = new AttributeList();
+    private ArrayList<Tags.effectTag> tagList = new ArrayList<Tags.effectTag>();
 
 
     public Ingredient(String imageString, int x, int y){
@@ -40,9 +42,9 @@ public class Ingredient extends ImageButton implements Hoverable {
         g2.setColor(Color.white);
 
         int tekstHoogte = y + 20;
-        for(AttributeList.attributes attribute : attributeList.getAttributeList() ){
+        for(Tags.effectTag tag : tagList ){
         //for(String attribute : attributeList.getAttributeList()){
-            g2.drawString(attribute + ": " + attributeList.getAttributeValue(attribute), x + 10, tekstHoogte);
+            g2.drawString(tag.name(), x + 10, tekstHoogte);
             tekstHoogte += 20;
         }
         /*
@@ -64,6 +66,12 @@ public class Ingredient extends ImageButton implements Hoverable {
 
     private boolean canChangeAmountInStock(int amount){
         return amountInStock + amount >= 0;
+    }
+
+    public void changeAmount(int amount){
+        if(canChangeAmountInStock(amount)) {
+            this.amountInStock += amount;
+        }
     }
 
 
@@ -93,11 +101,21 @@ public class Ingredient extends ImageButton implements Hoverable {
         }
     }
 
-    public AttributeList getAttributeList() {
-        return attributeList;
+    public ArrayList<Tags.effectTag> getTagList() {
+        return tagList;
+    }
+    public void addTag(Tags.effectTag tag){
+        tagList.add(tag);
     }
 
-    public void setAttributeList(AttributeList attributeList) {
-        this.attributeList = attributeList;
+    public void removeTag(Tags.effectTag tag){
+        int index = tagList.lastIndexOf(tag);
+        if(index >= 0){
+            tagList.remove(index);
+        }
     }
+
+    //public void setAttributeList(AttributeList attributeList) {
+        //this.attributeList = attributeList;
+    //}
 }

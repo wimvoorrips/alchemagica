@@ -12,6 +12,8 @@ public class AttributeList {
         ENERGY,
     }
 
+
+
     /*
     private String[] attributeList = {
             "strength",
