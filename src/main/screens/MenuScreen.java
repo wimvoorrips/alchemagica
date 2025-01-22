@@ -2,15 +2,10 @@ package main.screens;
 
 import main.GamePanel;
 import main.StaticImage.Patroon;
-import main.StaticImage.ScreenChangeButton;
-import main.StaticImage.StaticImage;
-import main.witch.Customer;
+import main.StaticImage.GameStateChangeButton;
 import main.witch.Witch;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
 public class MenuScreen extends Screen {
@@ -25,7 +20,7 @@ public class MenuScreen extends Screen {
         drawables.add(achterwand);
 
         //StaticImage startKnop = new StaticImage("sprites/startknopgroot.png", 0, 0);
-        ScreenChangeButton startKnop = new ScreenChangeButton("sprites/startknopgroot.png", 0, 0, GamePanel.GameState.SHOP);
+        GameStateChangeButton startKnop = new GameStateChangeButton("sprites/startknopgroot.png", 0, 0, GamePanel.GameState.SHOP);
         int startKnopX = (GamePanel.screenWidth / 2) - (startKnop.getWidth() / 2);
         int startKnopY = GamePanel.screenHeight - (startKnop.getHeight() + 10);
         startKnop.setX(startKnopX);

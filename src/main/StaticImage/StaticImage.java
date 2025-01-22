@@ -43,7 +43,6 @@ public class StaticImage implements Drawable {
 
     @Override
     public void draw(Graphics2D g2) {
-        //System.out.println("er wordt getekend");
         g2.drawImage(image,x,y, null  );
     }
 

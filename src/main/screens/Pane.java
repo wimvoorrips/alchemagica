@@ -1,7 +1,6 @@
 package main.screens;
 
 import main.interfaces.*;
-import main.screens.Screen;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -57,9 +56,9 @@ public class Pane implements Clickable, Hoverable, Drawable {
     }
 
     @Override
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D graphics2D){
         for(Drawable drawable : drawables){
-            drawable.draw(g2);
+            drawable.draw(graphics2D);
         }
     }
 
@@ -72,10 +71,10 @@ public class Pane implements Clickable, Hoverable, Drawable {
     public void onMouseClick(MouseEvent e){
         int mouseX = e.getX();
         int mouseY = e.getY();
-        //System.out.println(mouseX + ", " + mouseY);
         for( Clickable clickable : clickables){
-            if(mouseX >= clickable.getX() && mouseX <= clickable.getX() + clickable.getWidth() &&
-                    mouseY >= clickable.getY() && mouseY <= clickable.getY() + clickable.getHeight()){
+            boolean withinXBounds = mouseX >= clickable.getX() && mouseX <= clickable.getX() + clickable.getWidth();
+            boolean withinYBounds = mouseY >= clickable.getY() && mouseY <= clickable.getY() + clickable.getHeight();
+            if(withinXBounds && withinYBounds){
                 clickable.onMouseClick(e);
             }
         }

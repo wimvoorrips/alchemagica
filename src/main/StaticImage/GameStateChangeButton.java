@@ -4,16 +4,20 @@ import main.GamePanel;
 
 import java.awt.event.MouseEvent;
 
-public class ScreenChangeButton extends ImageButton {
+public class GameStateChangeButton extends ImageButton {
 
-    GamePanel.GameState gameState;
-    public ScreenChangeButton(String imageString, int x, int y, GamePanel.GameState gameState) {
+    private final GamePanel.GameState gameState;
+    public GameStateChangeButton(String imageString, int x, int y, GamePanel.GameState gameState) {
         super(imageString, x, y);
         this.gameState = gameState;
     }
     @Override
     public void onMouseClick(MouseEvent e) {
         System.out.println("er is op een knop geklikt");
+        changeGameState();
+    }
+
+    private void changeGameState(){
         GamePanel.setGameState(gameState);
     }
 }
