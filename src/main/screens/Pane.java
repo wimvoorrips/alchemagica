@@ -1,7 +1,6 @@
 package main.screens;
 
 import main.interfaces.*;
-import main.screens.Screen;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -50,16 +49,16 @@ public class Pane implements Clickable, Hoverable, Drawable {
         }
     }
 
-    public void update(){
+    public void recursiveUpdate(){
         for(Updatable updatable : updatables){
             updatable.update();
         }
     }
 
     @Override
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D graphics2D){
         for(Drawable drawable : drawables){
-            drawable.draw(g2);
+            drawable.draw(graphics2D);
         }
     }
 

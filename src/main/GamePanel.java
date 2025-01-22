@@ -130,7 +130,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void update(){
         Screen activeScreen = getActiveScreen();
-        activeScreen.update();
+        activeScreen.recursiveUpdate();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
