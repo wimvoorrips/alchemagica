@@ -49,7 +49,7 @@ public class Pane implements Clickable, Hoverable, Drawable {
         }
     }
 
-    public void recursiveUpdate(){
+    public void update(){
         for(Updatable updatable : updatables){
             updatable.update();
         }
@@ -71,10 +71,10 @@ public class Pane implements Clickable, Hoverable, Drawable {
     public void onMouseClick(MouseEvent e){
         int mouseX = e.getX();
         int mouseY = e.getY();
-        //System.out.println(mouseX + ", " + mouseY);
         for( Clickable clickable : clickables){
-            if(mouseX >= clickable.getX() && mouseX <= clickable.getX() + clickable.getWidth() &&
-                    mouseY >= clickable.getY() && mouseY <= clickable.getY() + clickable.getHeight()){
+            boolean withinXBounds = mouseX >= clickable.getX() && mouseX <= clickable.getX() + clickable.getWidth();
+            boolean withinYBounds = mouseY >= clickable.getY() && mouseY <= clickable.getY() + clickable.getHeight();
+            if(withinXBounds && withinYBounds){
                 clickable.onMouseClick(e);
             }
         }
