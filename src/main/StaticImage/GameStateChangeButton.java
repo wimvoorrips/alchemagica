@@ -1,6 +1,7 @@
 package main.StaticImage;
 
 import main.GamePanel;
+import main.interfaces.Clickable;
 
 import java.awt.event.MouseEvent;
 

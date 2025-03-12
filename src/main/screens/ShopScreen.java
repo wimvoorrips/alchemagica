@@ -26,11 +26,10 @@ public class ShopScreen extends Screen {
         Patroon achterwand = new Patroon("sprites/plankenmuurgroot.png",0,0, GamePanel.screenWidth, 800);// GamePanel.screenHeight);
         drawables.add(achterwand);
 
-        //Witch witch = new Witch(0,0);
         addEntity((GameEntity) witch);
-        //this.drawables.add(witch);
-        //this.clickables.add(witch);
 
+        Locationchangebar locationchangebar = new Locationchangebar(0,0, this.width, 100);
+        addEntity(locationchangebar);
 
         ItemContainer kast = new ItemContainer(witch, 0, 0);
         addEntity(kast);
@@ -52,19 +51,10 @@ public class ShopScreen extends Screen {
         chatBox.setText(currentCustomer.makeText());
 
 
-        //this.drawables.add(cauldron);
 
-        //StaticImage testSprite = new StaticImage("sprites/witch.jpeg", 0, 0);
 
     }
-    /*
 
-    @Override
-    public void onMouseClick(MouseEvent e) {
-        super.onMouseClick(e);
-        //System.out.println("er is geklikt in de shop");
-    }
-    */
     @Override
     public void setIsHovered(boolean isHovered) {
 
