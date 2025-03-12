@@ -11,6 +11,10 @@ public class GardenScreen extends Screen {
     }
 
     private void addEntities(Witch witch){
+        Locationchangebar locationchangebar = new Locationchangebar(0,0, this.width, 100);
+        addEntity(locationchangebar);
+
+
         int x = 270;
         int y = 100;
         for(int i = 0; i < 4; i++){

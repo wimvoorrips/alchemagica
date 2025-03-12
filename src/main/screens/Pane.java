@@ -35,6 +35,10 @@ public class Pane implements Clickable, Hoverable, Drawable {
     }
 
     public void addEntity(GameEntity entity){
+        //System.out.println(entity);
+        //System.out.println(entity instanceof Clickable);
+
+
         if(entity instanceof Updatable){
             updatables.add((Updatable) entity);
         }
@@ -69,12 +73,15 @@ public class Pane implements Clickable, Hoverable, Drawable {
     }
 
     public void onMouseClick(MouseEvent e){
+        //System.out.println("we checken of er in een ding geklikt is");
         int mouseX = e.getX();
         int mouseY = e.getY();
         for( Clickable clickable : clickables){
+            //System.out.println(clickable);
             boolean withinXBounds = mouseX >= clickable.getX() && mouseX <= clickable.getX() + clickable.getWidth();
             boolean withinYBounds = mouseY >= clickable.getY() && mouseY <= clickable.getY() + clickable.getHeight();
             if(withinXBounds && withinYBounds){
+                //System.out.println("raak");
                 clickable.onMouseClick(e);
             }
         }

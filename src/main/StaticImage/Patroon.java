@@ -21,11 +21,24 @@ public class Patroon implements Drawable {
         int horizontalRoundedUp = (int) amountHorizontal;
         int verticalRoundedUp = (int) amountVertical;
 
+        //System.out.println("aantal verticaal");
+        //System.out.println(verticalRoundedUp);
+
+        int leftoverWidth = width;
+        int leftoverHeight;
+
         for(int i = 0; i < horizontalRoundedUp; i++){
+
+            int neededWidth = Math.min(spriteWidth, leftoverWidth);
+            leftoverHeight = height;
             for (int j = 0; j < verticalRoundedUp; j++){
-                StaticImage plaatje = new StaticImage(afbeelding, x + (i*spriteWidth), y + (j*spriteHeight));
+
+                int neededHeight = Math.min(spriteHeight, leftoverHeight);
+                StaticImage plaatje = new StaticImage(afbeelding, x + (i*spriteWidth), y + (j*spriteHeight), neededWidth, neededHeight);
+                leftoverHeight = leftoverHeight - spriteHeight;
                 drawables.add(plaatje);
             }
+            leftoverWidth = leftoverWidth - spriteWidth;
         }
     }
 

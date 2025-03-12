@@ -22,23 +22,45 @@ public class StaticImage implements Drawable {
     private boolean isFlipped = false;
 
     public StaticImage(String imageString, int x, int y){
+        this(imageString, x, y, 0,0);
+        /*
         this.imageString = imageString;
         this.x = x;
         this.y = y;
-        loadImage(imageString);
+        loadImage(imageString);*/
+    }
+
+    public StaticImage(String imageString, int x, int y, int width, int height){
+        this.imageString = imageString;
+        this.x = x;
+        this.y = y;
+        loadImage(imageString, width, height);
     }
 
     protected void loadImage(String imageString){
+        loadImage(imageString, 0, 0);
+    }
+
+    protected void loadImage(String imageString, int width, int height){
         String realImageString = "/resources/" + imageString;
         try {
             image = ImageIO.read(getClass().getResource(realImageString));
+
+            if(width > 0){
+                resizeImage(width, height);
+            }
+
             if(isFlipped){
                 flipImage();
             }
-            //System.out.println("gelukt");
         } catch (IOException e){
             System.out.println(e);
         }
+    }
+
+    private void resizeImage(int width, int height){
+        image = image.getSubimage(0,0, width, height);
+
     }
 
     @Override
