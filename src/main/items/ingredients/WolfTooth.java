@@ -5,6 +5,7 @@ import main.items.Tags;
 public class WolfTooth extends Ingredient{
     public WolfTooth(int x, int y) {
         super("sprites/ingredients/tooth.png", x, y);
+        this.setName("wolftooth");
         addTag(Tags.effectTag.STRENGTH);
         addTag(Tags.effectTag.PERISHING);
         addTag(Tags.effectTag.SENSATION);

@@ -6,6 +6,7 @@ public class Carrot extends Ingredient {
 
     public Carrot(int x, int y){
         super("sprites/ingredients/carrot.png", x, y);
+        this.setName("carrot");
         addTag(Tags.effectTag.VISION);
         addTag(Tags.effectTag.FLEXIBILITY);
         addTag(Tags.effectTag.ATTRACTION);
