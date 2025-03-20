@@ -5,6 +5,7 @@ import main.items.Tags;
 public class FineSand extends Ingredient{
     public FineSand(int x, int y) {
         super("sprites/ingredients/sand.png", x, y);
+        this.setName("fine sand");
         addTag(Tags.effectTag.LETHARGY);
         addTag(Tags.effectTag.HEARING);
         addTag(Tags.effectTag.DISEASE);

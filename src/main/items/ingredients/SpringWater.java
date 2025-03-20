@@ -5,6 +5,7 @@ import main.items.Tags;
 public class SpringWater extends Ingredient{
     public SpringWater(int x, int y) {
         super("sprites/ingredients/waterdrop.png", x, y);
+        this.setName("spring water");
         addTag(Tags.effectTag.SENSATION);
         addTag(Tags.effectTag.LIFE);
         addTag(Tags.effectTag.HEALTH);

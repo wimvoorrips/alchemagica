@@ -12,6 +12,7 @@ public class Cauldron {
     public static ShopScreen shopScreen;
 
     public static void addIngredient(Ingredient ingredient){
+        shopScreen.getChatBox().addText("Ingredient " + ingredient.getName() + " toegevoegd");
         if(! isFull()){
             System.out.println("toegevoegd aan cauldron");
             contents.add(ingredient);
@@ -27,6 +28,7 @@ public class Cauldron {
     }
 
     public static void empty(){
+        shopScreen.getChatBox().addText("cauldron emptied");
         contents.clear();
     }
 
@@ -76,6 +78,7 @@ public class Cauldron {
 
         String potionName = createPotionName(firstTag, lastTag);
         System.out.println(potionName);
+        shopScreen.getChatBox().addText(potionName + " gemaakt!");
 
         /*
 
