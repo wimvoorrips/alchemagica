@@ -77,6 +77,12 @@ public class Cauldron {
         String potionName = createPotionName(firstTag, lastTag);
         System.out.println(potionName);
 
+
+        ArrayList<String> reply = new ArrayList<>();
+        reply.add("You have created the following: " + potionName);
+        shopScreen.getChatBox().setText(reply);
+
+
         /*
 
         Map<Tags.tag, Long> occurrences =

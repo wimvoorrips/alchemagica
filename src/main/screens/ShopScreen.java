@@ -6,12 +6,12 @@ import main.StaticImage.StaticImage;
 import main.interfaces.GameEntity;
 import main.items.Cauldron;
 import main.items.ItemContainer;
-import main.items.ingredients.Ingredient;
+import main.screens.screencomponents.Locationchangebar;
+import main.screens.screencomponents.TextBox;
 import main.witch.Customer;
 import main.witch.Witch;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
 
 public class ShopScreen extends Screen {
 

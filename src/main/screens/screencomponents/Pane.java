@@ -1,4 +1,4 @@
-package main.screens;
+package main.screens.screencomponents;
 
 import main.interfaces.*;
 

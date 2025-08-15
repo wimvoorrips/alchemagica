@@ -2,6 +2,8 @@ package main.screens;
 
 import main.interfaces.GameEntity;
 import main.items.ingredients.LongGrass;
+import main.screens.screencomponents.GardenPlot;
+import main.screens.screencomponents.Locationchangebar;
 import main.witch.Witch;
 
 public class GardenScreen extends Screen {
