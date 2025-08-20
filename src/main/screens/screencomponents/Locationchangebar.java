@@ -1,9 +1,8 @@
-package main.screens;
+package main.screens.screencomponents;
 
 import main.GamePanel;
 import main.StaticImage.GameStateChangeButton;
 import main.StaticImage.Patroon;
-import main.StaticImage.StaticImage;
 
 public class Locationchangebar extends Pane {
     public Locationchangebar(int x, int y, int width, int height) {

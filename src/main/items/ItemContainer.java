@@ -2,15 +2,11 @@ package main.items;
 
 import main.GamePanel;
 import main.StaticImage.StaticImage;
-import main.interfaces.Drawable;
 import main.interfaces.GameEntity;
 import main.items.ingredients.Ingredient;
-import main.screens.Pane;
-import main.screens.Screen;
+import main.screens.screencomponents.Pane;
 import main.witch.Character;
 
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.util.List;
 
 public class ItemContainer extends Pane {

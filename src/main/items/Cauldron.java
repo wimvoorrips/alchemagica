@@ -80,6 +80,12 @@ public class Cauldron {
         System.out.println(potionName);
         shopScreen.getChatBox().addText(potionName + " gemaakt!");
 
+
+        ArrayList<String> reply = new ArrayList<>();
+        reply.add("You have created the following: " + potionName);
+        shopScreen.getChatBox().setText(reply);
+
+
         /*
 
         Map<Tags.tag, Long> occurrences =

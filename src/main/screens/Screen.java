@@ -1,14 +1,9 @@
 package main.screens;
 
 import main.interfaces.Drawable;
-import main.interfaces.Clickable;
-import main.interfaces.Hoverable;
-import main.interfaces.Updatable;
+import main.screens.screencomponents.Pane;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Screen extends Pane {
 

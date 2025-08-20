@@ -1,4 +1,4 @@
-package main.screens;
+package main.screens.screencomponents;
 
 import main.StaticImage.ImageButton;
 import main.items.ingredients.Ingredient;
@@ -12,7 +12,7 @@ public class GardenPlot extends ImageButton {
     int maxState = 3;
     Character owner;
 
-    GardenPlot(Character owner ,int x, int y){
+    public GardenPlot(Character owner, int x, int y){
         super("sprites/garden1.png", x, y);
         this.owner = owner;
     }
