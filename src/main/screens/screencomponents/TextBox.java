@@ -33,8 +33,10 @@ public class TextBox extends Pane {
         g2.setColor(Color.white);
 
         int currentY = y + 40;
-        for(String line : text){
-            g2.drawString(line, x + 20,currentY);
+
+        int startPos = Math.max(0, text.size() - 8);
+        for(int i = startPos; i < text.size(); i++){
+            g2.drawString(text.get(i), x + 20,currentY);
             currentY += 20;
         }
 
@@ -42,5 +44,11 @@ public class TextBox extends Pane {
 
     public void setText(ArrayList<String> text) {
         this.text = text;
+    }
+    public void addText(String text){
+        this.text.add(text);
+    }
+    public void addText(ArrayList<String> text){
+        text.forEach(this::addText);
     }
 }

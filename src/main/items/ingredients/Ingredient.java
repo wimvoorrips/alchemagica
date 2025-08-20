@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Ingredient extends ImageButton implements Hoverable {
 
     protected int amountInStock = 10;
+    private String name = "unnamed";
 
     private boolean isHovered = false;
 
@@ -113,6 +114,13 @@ public class Ingredient extends ImageButton implements Hoverable {
         if(index >= 0){
             tagList.remove(index);
         }
+    }
+
+    protected void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
     }
 
     //public void setAttributeList(AttributeList attributeList) {

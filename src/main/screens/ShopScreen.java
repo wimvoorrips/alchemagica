@@ -48,7 +48,7 @@ public class ShopScreen extends Screen {
         currentCustomer = new Customer();
         currentCustomer.generateRequest();
 
-        chatBox.setText(currentCustomer.makeText());
+        chatBox.addText(currentCustomer.makeText());
 
 
 
